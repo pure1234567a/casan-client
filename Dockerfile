@@ -1,10 +1,8 @@
 # Stage 0, based on Node.js, to build and compile Angular
-FROM node:8.9 as node
+FROM node:10
 COPY . /www/app
 
 RUN npm install -g cordova ionic
-RUN npm install -g bower
-RUN npm install -g gulp
 
 WORKDIR /www/app
 RUN npm install
@@ -12,4 +10,4 @@ RUN npm install
 EXPOSE 8100
 
 ENTRYPOINT ["ionic"]
-CMD ["serve", "8100", "--address", "0.0.0.0"]
+CMD ["serve", "8100"]
